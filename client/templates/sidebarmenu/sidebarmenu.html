@@ -1,0 +1,18 @@
+<template name="sidebarmenu">
+    {{#each menuitems}}
+      {{#if isMenuItem}}
+        <li class="{{menuitemclass}}"><a href="{{url}}"><span>{{title}}</span></a></li>
+      {{/if}}
+      {{#if isTreeView}}
+          <li class="treeview">
+              <a href="#"><span>{{title}}</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                  {{#each treeviewitems}}
+                  <li><a href="{{url}}">{{title}}</a>
+                  </li>
+                  {{/each}}
+              </ul>
+          </li>
+      {{/if}}
+    {{/each}}
+</template>
