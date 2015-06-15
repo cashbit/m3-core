@@ -1,0 +1,19 @@
+<template name="usergroups">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        {{> m3coreContentHeader title="User groups" subtitle="control panel" }}
+
+        {{> m3coretableview
+            table=TabularTables.Usergroups
+            tableColClass="col-md-8"
+            formColClass="col-md-4"
+        }}
+
+    </div><!-- /.content-wrapper -->
+</template>
+<!--
+<template name="userGroupsDeleteButton">
+    <button type="button" class="btn btn-xs delete">Delete</button>
+</template>
+-->
+

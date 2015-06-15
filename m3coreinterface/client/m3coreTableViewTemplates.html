@@ -1,0 +1,64 @@
+<template name="m3coretableview">
+    <!-- Content Wrapper. Contains page content -->
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Your Page Content Here -->
+            <div class="row tableViewContainer">
+                <div class="{{tableColClass}}">
+                    <div class="table-responsive" style="max-height: 600px;">
+                        {{> tabular table=table selector=selector class="table table-striped table-bordered table-condensed m3coreTableViewTable"}}
+                    </div>
+                </div>
+                <div class="{{formColClass}}">
+                    {{>m3coretableViewAddForm}}
+
+                    {{>m3coretableViewEditForm}}
+                </div>
+            </div>
+
+        </section><!-- /.content -->
+
+</template>
+
+<template name="m3coretableViewAddForm">
+    {{#if noDocIsSelected}}
+        <h4>Add</h4>
+
+        {{#autoForm collection=formCollection table=formTable.name id=randomFormId class="m3coretableViewAddForm m3coreTableVieForm" type="insert"}}
+            {{#each afFieldNames}}
+                {{> afQuickField name=this.name options=afOptionsFromSchema}}
+            {{/each}}
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-check"></i></button>
+        {{/autoForm}}
+
+    {{/if}}
+</template>
+
+<template name="m3coretableViewEditForm">
+    {{#if selectedDoc}}
+        <h4>Edit</h4>
+
+        {{#autoForm collection=formCollection doc=selectedDoc table=formTable.name id=randomFormId class="m3coretableViewEditForm m3coreTableVieForm" type="update"}}
+            {{#each afFieldNames}}
+                {{> afQuickField name=this.name options=afOptionsFromSchema}}
+            {{/each}}
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-check"></i></button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-warning btn-block cancelEditButton"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-danger btn-block deleteEditButton" collection="{{formCollection}}" docId="{{selectedDoc._id}}"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        {{/autoForm}}
+    {{/if}}
+</template>
+
+
+<template name="m3coretableViewDocEditButton">
+    <button type="button" class="btn btn-xs edit"><i class="fa fa-chevron-right"></i></button>
+</template>

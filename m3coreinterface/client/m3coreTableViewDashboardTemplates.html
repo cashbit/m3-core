@@ -1,0 +1,28 @@
+<template name="m3coretableviewdashboard">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Your Page Content Here -->
+            <div class="row">
+               <div class="{{tableColClass}}">
+                    <div class="table-responsive">
+                        {{> tabular table=table selector=selector class="table table-striped table-bordered table-condensed m3coreTableViewTable"}}
+                    </div>
+                </div>
+
+                <div class="{{tableColClass2}}">
+                    <div class="table-responsive">
+                        {{> tabular table=table2 selector=selector class="table table-striped table-bordered table-condensed m3coreTableViewTable"}}
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</template>
+
